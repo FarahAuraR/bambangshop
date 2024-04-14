@@ -90,5 +90,16 @@ Untuk menjaga keunikan ID atau URL dari customer, menggunakan Vec (list) sudah c
 Penggunaan DashMap untuk variabel statis SUBSCRIBERS adalah pilihan yang tepat karena memungkinkan akses ke data yang sama dari mana pun dalam aplikasi dan menjaga keamanan konkurensi. Implementasi Singleton pattern mungkin memungkinkan, tetapi tidak mutlak diperlukan karena DashMap sudah menyediakan fungsionalitas yang diperlukan untuk pengelolaan keamanan konkurensi. Jadi, DashMap adalah pilihan yang tepat untuk SUBSCRIBERS dalam BambangShop.
 
 #### Reflection Publisher-2
+1. In the Model-View Controller (MVC) compound pattern, there is no “Service” and “Repository”. Model in MVC covers both data storage and business logic. Explain based on your understanding of design principles, why we need to separate “Service” and “Repository” from a Model?
+
+Prinsip SRP (Single Responsibility Principle) menggarisbawahi kebutuhan akan class yang fokus pada satu tanggung jawab. Oleh karena itu, pemisahan "Service" dan "Repository" dari Model diperlukan agar Model hanya fokus pada struktur data. Ini memastikan Model hanya bertanggung jawab atas representasi data, sesuai dengan prinsip SRP.
+
+2. What happens if we only use the Model? Explain your imagination on how the interactions between each model (Program, Subscriber, Notification) affect the code complexity for each model?
+
+Jika hanya menggunakan Model tanpa memisahkan tanggung jawabnya, akan mengakibatkan model harus menangani representasi data dan business logic. Hal ini dapat meningkatkan kompleksitas kode, sulit dalam perawatan, dan membuat interaksi antar-model menjadi rumit dan terikat. Misalnya, jika sebuah Product harus memberi tahu Subscriber tentang perubahan, maka akan terjadi interaksi langsung antara keduanya tanpa pemisahan yang jelas.
+
+3. Have you explored more about Postman? Tell us how this tool helps you to test your current work. You might want to also list which features in Postman you are interested in or feel like it is helpful to help your Group Project or any of your future software engineering projects.
+
+Postman dapat menjadi alat yang sangat berguna dalam pengujian program dengan kemampuannya untuk mengirim respons ke endpoint API. Fitur pengiriman permintaan HTTP, pengujian otomatis, dan pengelolaan environment variables sangat membantu dalam memverifikasi perilaku endpoint API, menguji berbagai kondisi, dan memudahkan penyesuaian antar lingkungan seperti development, staging, dan production saat menguji API.
 
 #### Reflection Publisher-3
