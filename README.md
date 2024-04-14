@@ -103,3 +103,14 @@ Jika hanya menggunakan Model tanpa memisahkan tanggung jawabnya, akan mengakibat
 Postman dapat menjadi alat yang sangat berguna dalam pengujian program dengan kemampuannya untuk mengirim respons ke endpoint API. Fitur pengiriman permintaan HTTP, pengujian otomatis, dan pengelolaan environment variables sangat membantu dalam memverifikasi perilaku endpoint API, menguji berbagai kondisi, dan memudahkan penyesuaian antar lingkungan seperti development, staging, dan production saat menguji API.
 
 #### Reflection Publisher-3
+1. Observer Pattern has two variations: Push model (publisher pushes data to subscribers) and Pull model (subscribers pull data from publisher). In this tutorial case, which variation of Observer Pattern that we use?
+
+Dalam tutorial ini, kita menggunakan variasi model Push dari Observer Pattern. Hal ini terlihat dari penggunaan request HTTP POST untuk mengirimkan notifikasi kepada pelanggan yang telah berlangganan. Notifikasi ini dipicu oleh create, promote, atau delete produk.
+
+2. What are the advantages and disadvantages of using the other variation of Observer Pattern for this tutorial case? (example: if you answer Q1 with Push, then imagine if we used Pull)
+
+Jika kita menggunakan variasi Pull dari Observer Pattern, kelebihannya adalah mengurangi penggunaan sumber daya jaringan dan komputasi karena pelanggan hanya mengambil data saat diperlukan. Mereka juga memiliki kendali penuh atas timing pengambilan data. Namun, kekurangannya adalah pelanggan harus secara aktif meminta pembaruan, yang dapat menyebabkan keterlambatan dalam mendapatkan informasi terbaru. Implementasi Model Pull juga membutuhkan penambahan logika di sisi pelanggan untuk mengelola permintaan dan pembaruan data.
+
+3. Explain what will happen to the program if we decide to not use multi-threading in the notification process.
+
+Jika kita memutuskan untuk tidak menggunakan multi-threading dalam proses notifikasi, proses akan dilakukan secara berurutan dengan setiap notifikasi diproses satu per satu. Ini berarti kita harus menunggu hingga notifikasi sebelumnya selesai sebelum memproses yang berikutnya. Jika ada banyak notifikasi yang harus dikirim, ini dapat mengakibatkan keterlambatan dan delay dalam respons. Penggunaan multi-threading dapat mempercepat proses notifikasi dengan memprosesnya secara paralel, meningkatkan responsivitas aplikasi, dan lebih efisien ketika ingin mengirim banyak notifikasi.
